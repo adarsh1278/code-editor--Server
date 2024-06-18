@@ -49,7 +49,9 @@ io.on('connection', (socket) => {
 
     socket.on('file:change', async ({ path, content }) => {
         console.log("path is ===" , path)
-        await fs.writeFile(`./${path}`, content)
+        console.log(content)
+         const result =await fs.writeFile(`./${path}`, content)
+         console.log(result)
     })
 
     socket.on('terminal:write', (data) => {
@@ -68,7 +70,7 @@ app.get('/files', async (req, res) => {
 
 app.get('/files/content', async (req, res) => {
     const path = req.query.path;
-    const content = await fs.readFile(`./user${path}`, 'utf-8')
+    const content = await fs.readFile(`./${path}`, 'utf-8')
     return res.json({ content })
 })
 
