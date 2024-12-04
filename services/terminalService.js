@@ -1,9 +1,7 @@
 const pty = require('node-pty');
 const config = require('../config');
 
-/**
- * Service for terminal operations
- */
+
 class TerminalService {
     constructor() {
         // Spawn a pseudo-terminal process
